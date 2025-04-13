@@ -32,6 +32,8 @@ public class PlayerController : MonoBehaviour
             winTextObject.SetActive(false);
             loseTextObject.SetActive(false);
             endGameMenu.SetActive(false);
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
 
         }
     
@@ -54,6 +56,8 @@ public class PlayerController : MonoBehaviour
             endGameMenu.SetActive(true);
             winTextObject.SetActive(true);
             Destroy(GameObject.FindGameObjectWithTag("Enemy"));
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
         }
     }
 
@@ -82,6 +86,8 @@ public class PlayerController : MonoBehaviour
             Destroy(gameObject);
             endGameMenu.SetActive(true);
             loseTextObject.SetActive(true);
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
         }
     }
 }
