@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour
         {
         // Get and store the Rigidbody component attached to the player.
             rb = GetComponent<Rigidbody>();
-            count = 0;
+            count = 9;
             SetCountText();
             winTextObject.SetActive(false);
             loseTextObject.SetActive(false);
@@ -50,8 +50,17 @@ public class PlayerController : MonoBehaviour
 
     void SetCountText()
     {
-        countText.text = "Count: " + count.ToString();
-        if(count >= 9)
+        if(count > 1)
+        {
+            countText.text = "Faltam " + count.ToString();
+        }
+        else if (count == 1)
+        {
+            countText.text = "Falta " + count.ToString();
+
+        }
+        
+        if(count <= 0)
         {
             endGameMenu.SetActive(true);
             winTextObject.SetActive(true);
