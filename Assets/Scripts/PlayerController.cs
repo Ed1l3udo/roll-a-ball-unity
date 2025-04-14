@@ -50,7 +50,7 @@ public class PlayerController : MonoBehaviour
 
     void SetCountText()
     {
-        if(count > 1)
+        if(count != 1)
         {
             countText.text = "Faltam " + count.ToString();
         }
@@ -59,7 +59,7 @@ public class PlayerController : MonoBehaviour
             countText.text = "Falta " + count.ToString();
 
         }
-        
+
         if(count <= 0)
         {
             endGameMenu.SetActive(true);
@@ -86,7 +86,7 @@ public class PlayerController : MonoBehaviour
         if(other.gameObject.CompareTag("PickUp"))
         {
             other.gameObject.SetActive(false);
-            count++;
+            count--;
             SetCountText();
         }
 
